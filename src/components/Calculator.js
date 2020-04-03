@@ -19,7 +19,7 @@ const Calculator = () => {
       <h1>Calculator</h1>
       <p>Here you will find an advanced calculator to calculate your night out!</p>
       <button onClick={getDataFromBackendTest}>
-        Test
+        Test123
       </button>
     </div>
   );
