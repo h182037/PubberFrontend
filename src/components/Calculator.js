@@ -3,7 +3,7 @@ import React from 'react';
 const Calculator = () => {
 
   const getDataFromBackendTest = () => {
-    fetch('https://swapi.co/api/people/1')
+    fetch('https://pubber-backend.herokuapp.com/calculate')
     .then(response => response.json())
     .then(data => console.log(data));
   }
