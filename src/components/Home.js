@@ -1,23 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import '../App.css';
 
 const Home = () => {
   return (
     <div>
-        <h1>Pubber</h1>
         <p>This will be the front page of Pubber</p>
-
-        <ul>
-            <li>
-                <Link to='/bars'>Bars</Link>
-            </li>
-            <li>
-                <Link to='/offers'>Offers</Link>
-            </li>
-            <li>
-                <Link to='/calculator'>Calculator</Link>
-            </li>
-        </ul>
+        <Link to='/bars'>       
+            <Button className='button' variant='warning' size='lg'>
+                Bars
+            </Button>
+        </Link>
+        <br/>
+        <Link to='/offers'>
+            <Button className='button' variant='warning' size='lg'>
+                Offers
+            </Button>
+        </Link>
+        <br/>
+        <Link to='/calculator'>
+            <Button className='button' variant='warning' size='lg'>
+                Calculator
+            </Button>
+        </Link>
     </div>
   );
 }
