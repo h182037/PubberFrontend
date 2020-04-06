@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
 const Calculator = () => {
+  const [cheapestBar, setCheapestBar] = useState();
 
   const getDataFromBackendTest = () => {
     fetch('https://pubber-backend.herokuapp.com/calculate')
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => setCheapestBar(data.name));
   }
 
   return (
     <div>
       <h1>Calculator</h1>
       <p>Here you will find an advanced calculator to calculate your night out!</p>
-      <button onClick={getDataFromBackendTest}>
+      <Button 
+        className='button'
+        variant='warning'
+        size='sm'
+        onClick={getDataFromBackendTest}
+      >
         Test
-      </button>
+      </Button>
+      {cheapestBar && 
+      <p>
+        The cheapest bar is {cheapestBar}  
+      </p>}
     </div>
   );
 }
