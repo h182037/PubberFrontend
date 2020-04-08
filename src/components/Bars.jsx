@@ -73,9 +73,9 @@ const Bars = () => {
   const barCards = () => {
     return barList.map(bar => {
       return (
-        <Card>
+        <Card key={bar.id}>
           <Accordion.Toggle as={Card.Header} variant="link" eventKey={bar.id}>
-            {bar.name}
+            <b>{bar.name}</b>
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={bar.id}>
             <Card.Body>
