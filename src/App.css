@@ -33,9 +33,10 @@ h5 {
   margin-bottom: 1.5rem;
 }
 
-.barContainer {
+.columnContainer {
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 }
 
 .barContainerRow {
@@ -49,4 +50,28 @@ h5 {
 
 .barImage {
   max-height: 25rem;
+}
+
+.radioLabel {
+  margin: 0.5rem;
+}
+
+.radioLabel {
+  margin: 0.125rem;
+}
+
+.textInput {
+  margin-left: 0.5rem;
+}
+
+.radioButton {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 0.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.errorMessage {
+  margin: 0.25rem;
+  color: red;
 }

@@ -5,7 +5,7 @@ const Bar = props => {
     const { id, name, address, description, isClub, imgSrc, prices, age, offerId } = props.data
 
     return (
-        <div className='barContainer'>
+        <div className='columnContainer'>
             <div className='barContainerRow'>
                 <div className='barContainerColumn'>
                     <Image className='barImage' alt={`Image of ${name}`} src={imgSrc} fluid />
