@@ -14,7 +14,7 @@ import Logo from './resources/logo.PNG'
 const App = () => {
   
   return (
-    <div className="App">
+    <div className='App'>
       <Link to='/'>
         <img className='logo' alt='Home button' src={Logo} />
       </Link>
@@ -23,7 +23,7 @@ const App = () => {
         <Route exact path="/offers" component={Offers} />
         <Route exact path="/calculator" component={Calculator} />
         <Route exact path="/" component={Home} />
-      </Switch>   
+      </Switch> 
     </div>
   )
 }

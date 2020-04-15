@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  flex: 1 0 auto;
+  padding: 10px;
 }
 
 .logo {
@@ -21,6 +23,7 @@
   margin-top: 2rem;
   margin-left: 15%;
   margin-right: 15%;
+  margin-bottom: 4rem;
 }
 
 h4 {
