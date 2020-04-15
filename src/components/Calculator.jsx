@@ -15,7 +15,7 @@ const Calculator = () => {
 
 
   const getDataFromBackendTest = () => {
-    if(inputValue.length === 0) {
+    if(!inputValue || inputValue.length === 0) {
       setErrorMessage('Please input a number')
     } else if(isNaN(inputValue)) {
       setErrorMessage('Invalid input, must be a number')
@@ -25,15 +25,37 @@ const Calculator = () => {
       setTest(null)
       setErrorMessage(null)
       setIsFetching(true)
-      fetch('https://pubber-backend.herokuapp.com/calculate')
-      .then(response => response.json())
+
+      // TODO use actual input values,
+      const payload = {
+        givenMoney: true,
+        amount: 500,
+        drinkType: 'beer',
+        club: false
+      }
+      const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+      fetch(proxyUrl + 'https://pubber-backend.herokuapp.com/calculate', {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(payload)
+      }).then(response => response.json())
       .then(data => {
+        console.log(data)
+
+        //TODO display response data
         setTest(data)
         setResultDrinkType(inputDrinkType)
         setResultCalculatorType(inputCalculatorType)
         setResultValue(inputValue)
         setIsFetching(false)
-      })
+      }).catch(error => {
+        setIsFetching(false)
+        console.error('Woopsie! Error:', error)
+      }
+
+      )
     }
   }
 
