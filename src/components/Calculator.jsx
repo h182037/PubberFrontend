@@ -34,7 +34,7 @@ const Calculator = () => {
         club: false
       }
       const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-      fetch('https://pubber-backend.herokuapp.com/calculate', {
+      fetch(proxyUrl + 'https://pubber-backend.herokuapp.com/calculate', {
         headers: {
           'Content-Type': 'application/json'
         },
