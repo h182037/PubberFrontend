@@ -6,7 +6,7 @@ const Bar = props => {
 
     return (
         <div className='columnContainer'>
-            <div className='barContainerRow'>
+            <div className='rowContainer'>
                 <div className='barContainerColumn'>
                     <Image className='barImage' alt={`Image of ${name}`} src={image} fluid />
                 </div>
@@ -18,7 +18,7 @@ const Bar = props => {
                     <p>Age limit: {age}</p>
                 </div>
             </div>
-            <div className='barContainerRow'>
+            <div className='rowContainer'>
                 <div className='barContainerColumn'>
                     <h5>Prices</h5>
                     <p>Beer: {prices.beer} kr</p>

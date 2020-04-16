@@ -42,7 +42,7 @@ h5 {
   margin-top: 1rem;
 }
 
-.barContainerRow {
+.rowContainer {
   display: flex;
   flex-direction: row;
 }
@@ -77,4 +77,32 @@ h5 {
 .errorMessage {
   margin: 0.25rem;
   color: red;
+}
+
+.emoji {
+  margin-left: 0.5rem;
+  font-size: larger;
+}
+
+.spinning {
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+
+.slow {
+  animation-duration: 30000ms;
+}
+
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+
+.bolder {
+  font-weight: bolder;
 }

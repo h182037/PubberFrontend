@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import Image from 'react-bootstrap/Image'
 import Home from './components/Home.jsx'
 import Calculator from './components/Calculator.jsx'
 import Bars from './components/Bars.jsx'
@@ -16,7 +17,7 @@ const App = () => {
   return (
     <div className='App'>
       <Link to='/'>
-        <img className='logo' alt='Home button' src={Logo} />
+        <Image className='logo spinning slow' alt='Home button' src={Logo} roundedCircle/>
       </Link>
       <Switch>
         <Route exact path="/bars" component={Bars} />

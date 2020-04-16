@@ -13,7 +13,7 @@ ReactDOM.render(
       <footer className='footer'>
         Made with
         {' '}
-        <Emoji symbol="❤️" label="love" />
+        <Emoji symbol='❤️' label='love' />
         {' '}
         by PubberBoyz
       </footer> 
