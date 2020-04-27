@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'react-bootstrap/Image'
 
 const Bar = props => {
-    const { name, address, description, club, image, prices, age, offers } = props.data
+    const { name, address, description, club, image, prices, age, offers, cc } = props.data
 
     return (
         <div className='columnContainer'>
@@ -16,11 +16,13 @@ const Bar = props => {
                     <p>{description}</p>
                     <p>{club ? 'Is a club (not a bar)' : 'Is a bar (not a club)'}</p>
                     <p>Age limit: {age}</p>
+                    <p>CC: {cc} kr</p>
                 </div>
             </div>
             <div className='rowContainer'>
                 <div className='barContainerColumn'>
                     <h5>Prices</h5>
+                    <h6>{prices.description}</h6>
                     <p>Beer: {prices.beer} kr</p>
                     <p>Cider: {prices.cider} kr</p>
                     <p>Wine: {prices.wine} kr</p>
@@ -29,7 +31,8 @@ const Bar = props => {
                 <div className='barContainerColumn'>
                     {offers && 
                         <div>
-                            <h5>{offers.description}</h5>
+                            <h5>Offers</h5>
+                            <h6>{offers.description}</h6>
                             <p>Beer: {offers.beer} kr</p>
                             <p>Cider: {offers.cider} kr</p>
                             <p>Wine: {offers.wine} kr</p>

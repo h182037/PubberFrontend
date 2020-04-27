@@ -48,8 +48,6 @@ const Calculator = () => {
         body: JSON.stringify(payload)
       }).then(response => response.json())
       .then(data => {
-        // TODO remove logging
-        console.log(data)
         data.drinkType = drinkType
         data.calculatorType = calculatorType
         data.value = value
@@ -58,11 +56,12 @@ const Calculator = () => {
         // -------------------------------------------------------------
         // Temporary data, remove when data can be received from backend
         // -------------------------------------------------------------
-        data.image = 'https://static.wixstatic.com/media/888dc5_335e7051678c409fbfc4aac26a9c2999.png/v1/fill/w_600,h_636,al_c,q_90,usm_0.66_1.00_0.01/888dc5_335e7051678c409fbfc4aac26a9c2999.webp'
-        data.offers.description = 'Ukens tilbud på Kronbar'
+        data.image = barType === 'bar'
+          ? 'https://static.wixstatic.com/media/888dc5_335e7051678c409fbfc4aac26a9c2999.png/v1/fill/w_600,h_636,al_c,q_90,usm_0.66_1.00_0.01/888dc5_335e7051678c409fbfc4aac26a9c2999.webp'
+          : 'https://media-cdn.tripadvisor.com/media/photo-s/07/85/c0/7f/delightful-little-bar.jpg'
         data.answer = calculatorType === 1
-          ? Math.floor(value/50)
-          : value*50
+          ? Math.floor(value/data.prices[drinkType])
+          : value*data.prices[drinkType]
         // -------------------------------------------------------------
         // Temporary data end
         // -------------------------------------------------------------
@@ -78,17 +77,14 @@ const Calculator = () => {
           ? `For ${value} kr you will get ${data.answer} ${drinkText} at ${data.name}`
           : `${value} ${drinkText} will cost you ${data.answer} kr at ${data.name}`
 
-        const alcoholValue = calculatorType === 1 ? Math.floor(value/50) : value
-        const alcoholLevel = alcoholValue <= 6 
+        const alcoholValue = calculatorType === 1 ? data.answer : value
+        const alcoholLevel = alcoholValue <= 5 
           ? 'low'
-          : alcoholValue <= 12
+          : alcoholValue <= 10
             ? 'medium'
             : 'high'
         setAlcoholLevelEmoji(getRandomEmoji(alcoholLevel))
 
-
-
-        //TODO display response data
         setResult(data)
         setIsFetching(false)
       }).catch(error => {
